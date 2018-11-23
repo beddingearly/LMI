@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -9,37 +10,63 @@ import java.util.Scanner;
  * @Date: 2018/11/22 11:14
  * @Description:
  */
-public class Bag<Item> implements Iterable<Item>{
+public class Bag<Item> implements Iterable<Item> {
+    private Node first;
+    private int N;
 
-
-    public Bag(){
-
+    private class Node {
+        Item item;
+        Node next;
     }
 
-    public void add(Item item){
+    public void add(Item item) {
+        Node oldFirst = first;
+        first = new Node();
+        first.item = item;
+        first.next = oldFirst;
     }
 
-    public static boolean isEmpty(){
-        return Boolean.parseBoolean(null);
+    public boolean isEmpty() {
+        return N == 0;
     }
 
-    public static int size(){
-        return Integer.parseInt(null);
+    public int size() {
+        return N;
     }
 
     @Override
     public Iterator<Item> iterator() {
-        return null;
+        return new ListIterator<Item>();
     }
 
-    private class ReverseArrayIterator implements Iterable<Item>{
+    private class ListIterator<Item> implements Iterator<Item> {
+        private Node current = first;
 
-        @Override
-        public Iterator<Item> iterator() {
-            return null;
+        public boolean hasNext() {
+            return current != null;
         }
 
+        public void remove() {
+
+        }
+
+        public Item next() {
+            Item item = (Item) current.item;
+            current = current.next;
+            return item;
+        }
+    }
+
+    public static void main(String[] args) {
+        Bag<Integer> b = new Bag<>();
+        b.add(1);
+        b.add(0);
+        Iterator i = b.iterator();
+        while (i.hasNext()){
+            StdOut.println(i.next());
+        }
 
     }
+
 }
 
