@@ -35,17 +35,12 @@ public class test {
     private void hashset() {
         List<String> l = new LinkedList<>();
         //
-        ListIterator iter = l.listIterator();
+        Iterator iter = l.iterator();
         l.add("123");
         l.add("456");
-        //l.set(1, "123");
-        for (String i: l){
-            System.out.println(i);
-        }
 
         while (iter.hasNext()){
             System.out.println(iter.next());
-            //break;
         }
 
 
