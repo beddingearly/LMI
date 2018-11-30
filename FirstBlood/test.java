@@ -16,7 +16,7 @@ public class test {
         al.add(1);
         al.add("ac");
 
-        Iterator iter = al.iterator();
+        ListIterator iter = al.listIterator();
         while (iter.hasNext()) {
             System.out.println(iter.next());
         }
@@ -33,8 +33,7 @@ public class test {
     }
 
     private void hashset() {
-        List<String> l = new LinkedList<>();
-        //
+        LinkedList<String> l = new LinkedList<>();
         Iterator iter = l.iterator();
         l.add("123");
         l.add("456");
