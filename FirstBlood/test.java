@@ -82,12 +82,26 @@ public class test {
         }
     }
 
+    public void doubleList(){
+        List<Integer> l = new ArrayList<>();
+        l.add(1);
+        l.add(2);
+        l.add(3);
+
+        List<List<Integer>> ll = new ArrayList<>();
+        ll.add(new ArrayList<>(l));
+        for(int i: ll.get(0)){
+            System.out.println(i);
+        }
+    }
+
     public static void main(String[] args) {
         test t = new test();
 
         //t.arraylist();
         //t.hashmap();
-        t.hashset();
+        //t.hashset();
+        t.doubleList();
 
     }
 }
